@@ -1,0 +1,21 @@
+{
+  "name": "agent-supervisor-qc",
+  "owner": {
+    "name": "xiaobinger"
+  },
+  "metadata": {
+    "description": "Supervisor/QC agent skill: structured verdict loops, enforced rework feedback, and safety gates for multi-agent systems",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "agent-supervisor-qc",
+      "description": "Supervisor/QC agent protocol for reviewing another AI agent's work through a structured verdict loop — approve, rework with enforced itemized feedback, or escalate to humans. Includes copy-ready prompt templates, verdict parsing rules, and production failure modes.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/agent-supervisor-qc"
+      ]
+    }
+  ]
+}
