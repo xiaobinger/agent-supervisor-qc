@@ -157,7 +157,7 @@ Output ONLY one JSON object, nothing else:
 - approved=false: risky or incorrect parameters; state the reason in feedback
 ```
 
-Parse failure → default `approved=false` ("assessment failed, require human confirmation").
+Parse failure — including truncated JSON, malformed format, and empty output — → default `approved=false` ("assessment failed, require human confirmation"). `approved=true` is reachable only from a complete, well-formed JSON with a boolean true.
 
 ---
 

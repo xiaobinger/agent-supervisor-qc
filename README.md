@@ -2,7 +2,7 @@
 
 An [Agent Skills](https://agentskills.io) package that turns any agent into a **Supervisor / QC agent** for multi-agent systems.
 
-It distills a production-proven executor–supervisor quality loop: structured verdicts (approve / rework / escalate), enforced item-by-item rework feedback, risky-action gates, stuck-task watchdogs, and pre-retry state evaluation — with tolerant parsing and conservative fallbacks.
+It distills a production-proven executor–supervisor quality loop: structured verdicts (approve / rework / escalate), enforced item-by-item rework feedback, risky-action gates, stuck-task watchdogs, and pre-retry state evaluation — with tolerant parsing and fail-closed fallbacks.
 
 ## What's inside
 

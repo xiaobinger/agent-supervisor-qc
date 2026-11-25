@@ -66,8 +66,9 @@ A success status code is not evidence of useful output.
 required marker/JSON; the orchestrator can't parse it; the task hangs.
 
 **Fix**: tolerant parsing with **conservative defaults** — see verdict-and-parsing.md:
-first-JSON extraction, keyword fallback tables, REJECT-overrides-PASS, and
-unparseable → do not approve, record raw output, escalate to human.
+balanced-brace first-JSON extraction (never a greedy regex), ordered keyword fallback tables,
+REJECT-overrides-PASS, and unparseable → no valid verdict → do not approve, record raw
+output, escalate to human.
 
 ## 7. Infinite rework loops
 
@@ -75,6 +76,10 @@ unparseable → do not approve, record raw output, escalate to human.
 
 **Fix**: hard cap on collaboration rounds (default 3, configurable 1–20). At the cap:
 force-close with the supervisor's final score and opinion attached, or escalate to a human.
+**Force-close ends the loop — it is NOT acceptance**: the task ends in its last real verdict
+state, so a final REWORK closes as "not accepted / pending human" (final score and unresolved
+feedback items attached); only an explicit 【验收通过】 accepts. `can_close_ticket` auto-close
+applies to PASS only, never to a force-close.
 Score formula includes a per-rework-round deduction (−5, floor 40) so endless loops visibly
 degrade the score.
 
